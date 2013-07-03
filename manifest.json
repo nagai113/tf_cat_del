@@ -1,0 +1,28 @@
+{
+  "name": "Tab forece Helper(catalog-deleter)",
+  "version": "0.0.1",
+  "description": "Tab-Forceのカタログ範囲指定削除ツールです。(test)",
+
+  "manifest_version": 2,
+
+  "icons":{"48":"48.png"},
+
+  "background": {
+	"persistent": false,
+    "scripts": ["jquery-1.10.1.min.js", "background.js"]
+  },
+
+  "content_scripts": [
+    {
+	    "matches": ["*://www.tab-force.com/*/catalog/cataloglist?ctgr_id=1&ctgr_type=0&ctgr_fid=0", "*://www.tab-force.com/*/catalog/cataloglist?ctgr_id=1&ctgr_type=0&ctgr_fid=0*"],
+	    "js": ["jquery-1.10.1.min.js", "cat_del.js"]
+    }
+  ],
+
+  "permissions" : [
+    "*://www.tab-force.com/*",
+    "tabs"
+  ],
+  
+  "options_page": "options.html"
+}
